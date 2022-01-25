@@ -9,7 +9,7 @@ Usage:<br>
 
 Example with output:<br>
 
-./wordle -i ar -n hlm s.g..<br>
+./wordle.sh -i ar -n hlm s.g..<br>
 
 sager<br>
 sagra<br>

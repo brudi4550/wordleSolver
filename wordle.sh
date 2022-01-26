@@ -1,8 +1,12 @@
 #!/bin/bash
-NOT_IN_WORD=''
-IN_WORD=''
-while getopts ":i:n:" opt; do
+NOT_IN_WORD=""
+IN_WORD=""
+LANGUAGE="en"
+while getopts "l:i:n:" opt; do
   case $opt in
+    l)
+      LANGUAGE=$OPTARG
+      ;;
     i)
       IN_WORD=$OPTARG
       ;;
@@ -29,4 +33,9 @@ done
 GREP_NOT_IN=${GREP_IN_UNFORMATTED%?}
 
 ARG1=${@:$OPTIND:1}
-grep "\<$ARG1\>" words_alpha.txt | eval $GREP_IN | eval $GREP_NOT_IN
+ARG1_FORMATTED=${ARG1//[,]/.}
+if [[ "$LANGUAGE" == "de" ]]; then
+	grep "\<$ARG1_FORMATTED\>" words_german.txt | eval $GREP_IN | eval $GREP_NOT_IN
+else
+	grep "\<$ARG1_FORMATTED\>" words_english.txt | eval $GREP_IN | eval $GREP_NOT_IN
+fi

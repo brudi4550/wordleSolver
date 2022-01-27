@@ -4,7 +4,7 @@ Supported languages:<br>
 English, German, French, Italian, Spanish, Dutch, Norwegian<br>
 <br>
 Usage:<br>
--Semicolons represent unknown characters<br>
+-Commas represent unknown characters<br>
 -Use the '-i' flag for characters that you know are in the word<br>
 -Use the '-n' flag for characters that you know are not in the word<br>
 -Use the '-l' flag for selecting a language (Supported: en, de, fr, it, es, nl, no)<br>

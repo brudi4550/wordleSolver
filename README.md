@@ -21,10 +21,10 @@ sugar<br>
 
 ./wordle.sh -l de -i zu -n rvbn ,e,,,<br>
 
-Bezug<br>
 Deutz<br>
 seufz<br>
 zeuge<br>
+Zeugs<br>
 zeugt<br>
 
 <br>

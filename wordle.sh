@@ -8,13 +8,13 @@ while getopts "l:i:n:" opt; do
     i)
       IN_WORD=$OPTARG
       for (( i=0; i<${#IN_WORD}; i++ )); do
-	  GREP_UNFORMATTED+=" grep ${IN_WORD:i:1} |"
+	  GREP_UNFORMATTED+=" grep -i ${IN_WORD:i:1} |"
       done 
       ;;
     n)
       NOT_IN_WORD=$OPTARG
       for (( i=0; i<${#NOT_IN_WORD}; i++ )); do
-          GREP_UNFORMATTED+=" grep -v ${NOT_IN_WORD:i:1} |"
+          GREP_UNFORMATTED+=" grep -i -v ${NOT_IN_WORD:i:1} |"
       done 
       ;;
     \?)
@@ -24,6 +24,9 @@ while getopts "l:i:n:" opt; do
   esac
 done
 GREP_FORMATTED=${GREP_UNFORMATTED%?}
+if [[ "$GREP_FORMATTED" == "" ]]; then
+    GREP_FORMATTED="cat"
+fi
 ARG1=${@:$OPTIND:1}
 ARG1_FORMATTED=${ARG1//[,]/.}
 case $LANGUAGE in
